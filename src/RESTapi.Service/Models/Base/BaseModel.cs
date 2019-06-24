@@ -1,0 +1,9 @@
+﻿using System;
+
+namespace RESTapi.Service.Models.Base
+{
+    public class BaseModel
+    {
+        public int Id { get; set; }
+    }
+}
