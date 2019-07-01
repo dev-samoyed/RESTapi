@@ -5,8 +5,8 @@ using System.Text;
 
 namespace RESTapi.Service.Models
 {
-    public class CityModel : BaseModel
+    public class ContractModel : BaseModel
     {
-        public string Name { get; set; }
+        public string ContractContent { get; set; }
     }
 }

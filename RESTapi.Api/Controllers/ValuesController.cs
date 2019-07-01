@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using RESTapi.Service.Interfaces;
 
 namespace RESTapi.Api.Controllers
 {
@@ -10,18 +12,25 @@ namespace RESTapi.Api.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        protected readonly IMapper _mapper;
+        protected readonly IContractService _contractService;
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ValuesController(IMapper mapper, IContractService contractService)
         {
-            return "value";
+            _mapper = mapper;
+            _contractService = contractService;
+        }
+        // GET api/values/5
+        [HttpGet("{dateTime}")]
+        [Produces("application/xml")]
+        public async Task<ActionResult> Get(DateTime dateTime)
+        {
+            if (dateTime == null)
+                return BadRequest();
+            var batch = await _contractService.GetBatchAsync(dateTime);
+            if (batch == null)
+                return NoContent();
+            return Ok(batch);
         }
 
         // POST api/values

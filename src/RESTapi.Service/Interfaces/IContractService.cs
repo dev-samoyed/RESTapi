@@ -8,8 +8,8 @@ using RESTapi.Service.Models;
 
 namespace RESTapi.Service.Interfaces
 {
-    public interface IAreaService : IBaseQueryService<Area, AreaModel, SortType>
+    public interface IContractService : IBaseQueryService<Contract, ContractModel, SortType>
     {
-        Task<int> AddAreaAsync(AreaModel area);
+        Task<string> GetBatchAsync(DateTime dateTime);
     }
 }

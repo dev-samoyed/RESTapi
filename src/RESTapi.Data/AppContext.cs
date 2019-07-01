@@ -8,9 +8,14 @@ namespace RESTapi.Data
     {
 
         /* DbSets */
-        public DbSet<City> Cities { get; set; }
-        public DbSet<Area> Areas { get; set; }
-        public DbSet<Subscriber> Subscribers { get; set; }
+        public DbSet<Contract> Contracts { get; set; }
+        public DbSet<Currency> Currencies { get; set; }
+        public DbSet<Entities.Data> Datas { get; set; }
+        public DbSet<ProlongationAmount> ProlongationAmounts { get; set; }
+        public DbSet<SubjectRole> SubjectRoles { get; set; }
+        public DbSet<TotalAmount> TotalAmounts { get; set; }
+        public DbSet<TotalMontlyPayment> TotalMontlyPayments { get; set; }
+
 
         public AppContext(DbContextOptions<AppContext> options)
            : base(options)

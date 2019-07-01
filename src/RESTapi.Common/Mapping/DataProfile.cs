@@ -8,10 +8,7 @@ namespace RESTapi.Common.Mapping
     {
         public DataProfile()
         {
-            CreateMap<Subscriber, SubscriberModel>(MemberList.None).ReverseMap();
-            CreateMap<City, CityModel>(MemberList.None).ReverseMap();
-            CreateMap<Area, Area>(MemberList.None).ReverseMap();
-            CreateMap<Subscriber, SubscriberShowModel>(MemberList.None).ReverseMap();
+            CreateMap<Contract, ContractModel>(MemberList.None).ReverseMap();
         }
     }
 }

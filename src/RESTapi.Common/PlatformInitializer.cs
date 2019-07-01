@@ -28,9 +28,7 @@ namespace RESTapi.Common
 
             // add scoped registrations
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<ISubscriberService, SubscriberService>();
-            services.AddScoped<IAreaService, AreaService>();
-            services.AddScoped<ICityService, CityService>();
+            services.AddScoped<IContractService, ContractService>();
         }
 
         protected virtual void ConfigureDatabase(IServiceCollection services)
